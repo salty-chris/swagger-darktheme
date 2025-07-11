@@ -1,0 +1,1075 @@
+/*
+ * ================================================================================
+ * Commercial-Grade Dark Theme for OpenAPI/Swagger UI
+ * FINAL FULL PATCHED VERSION
+ * ================================================================================
+ */
+
+/* === ROOT VARIABLES ========================================================= */
+:root {
+  --color-primary-bg: #1a1a1a;
+  --color-secondary-bg: #262626;
+  --color-tertiary-bg: #333333;
+  --color-primary-text: #e6e6e6;
+  --color-secondary-text: #b3b3b3;
+  --color-accent: #0099cc;
+  --color-accent-hover: #00bfff;
+  --color-border: #404040;
+  --color-success: #28a745;
+  --color-info: #17a2b8;
+  --color-warning: #ffc107;
+  --color-danger: #dc3545;
+  --font-family-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-family-mono: "Fira Code", "Courier New", monospace;
+  --border-radius: 4px;
+  --transition-speed: 0.2s;
+}
+
+/* === GENERAL & BODY ========================================================= */
+body, .swagger-ui {
+  background-color: var(--color-primary-bg) !important;
+  color: var(--color-primary-text) !important;
+  font-family: var(--font-family-sans) !important;
+}
+
+/* === TYPOGRAPHY ============================================================= */
+.swagger-ui h1, .swagger-ui h2, .swagger-ui h3, .swagger-ui h4, .swagger-ui h5 {
+  color: var(--color-primary-text) !important;
+}
+
+.swagger-ui a {
+  color: var(--color-accent) !important;
+  transition: color var(--transition-speed) ease;
+}
+
+.swagger-ui a:hover {
+  color: var(--color-accent-hover) !important;
+}
+
+.swagger-ui code, .swagger-ui pre {
+  font-family: var(--font-family-mono);
+  background-color: var(--color-secondary-bg) !important;
+  color: var(--color-primary-text) !important;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--color-border);
+}
+
+/* === TOPBAR ================================================================= */
+.swagger-ui .topbar {
+  background-color: var(--color-secondary-bg) !important;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.swagger-ui .topbar .download-url-wrapper input[type=text] {
+  background-color: var(--color-primary-bg) !important;
+  color: var(--color-primary-text) !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--border-radius);
+}
+
+.swagger-ui .topbar .download-url-wrapper input[type=text]:focus {
+  border-color: var(--color-accent) !important;
+  box-shadow: 0 0 5px var(--color-accent);
+}
+
+.swagger-ui .topbar .download-url-button {
+  background-color: var(--color-accent) !important;
+  color: #ffffff !important;
+  border-radius: var(--border-radius);
+}
+
+.swagger-ui .topbar .download-url-button:hover {
+  background-color: var(--color-accent-hover) !important;
+}
+
+/* === OPERATION BLOCKS ======================================================= */
+.swagger-ui .opblock {
+  background-color: var(--color-secondary-bg) !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--border-radius);
+  margin-bottom: 1rem;
+}
+
+.swagger-ui .opblock-summary {
+  background-color: transparent !important;
+  border-bottom: none !important;
+  padding: 0.5rem 1rem !important;
+}
+
+.swagger-ui .opblock-summary:hover {
+  background-color: var(--color-tertiary-bg) !important;
+}
+
+.swagger-ui .opblock-summary-method {
+  border-radius: var(--border-radius);
+  font-weight: bold;
+  font-size: 0.9em;
+}
+
+.swagger-ui .opblock.opblock-get .opblock-summary-method { background-color: var(--color-info) !important; }
+.swagger-ui .opblock.opblock-post .opblock-summary-method { background-color: var(--color-success) !important; }
+.swagger-ui .opblock.opblock-put .opblock-summary-method { background-color: var(--color-warning) !important; color: #111 !important; }
+.swagger-ui .opblock.opblock-delete .opblock-summary-method { background-color: var(--color-danger) !important; }
+.swagger-ui .opblock.opblock-patch .opblock-summary-method { background-color: #6c757d !important; }
+
+.swagger-ui .opblock-summary-path {
+  font-family: var(--font-family-mono);
+  color: var(--color-primary-text) !important;
+}
+
+.swagger-ui .opblock-summary-description {
+  color: var(--color-secondary-text) !important;
+}
+
+.swagger-ui .opblock-tag {
+  color: var(--color-accent) !important;
+}
+
+.swagger-ui .opblock .opblock-section-header {
+  background-color: var(--color-tertiary-bg) !important;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* === PARAMETERS & RESPONSES ================================================= */
+.swagger-ui .parameters-container,
+.swagger-ui .responses-inner {
+  padding: 1rem;
+  display: flex;
+  justify-content: center; /* center tables horizontally */
+}
+
+.swagger-ui table.parameters,
+.swagger-ui table.responses-table {
+  width: 60% !important; /* constrain to ~60% page width */
+  max-width: 60% !important;
+  min-width: 400px; /* prevent excessive narrowing */
+  table-layout: auto;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  border-collapse: collapse;
+  background-color: var(--color-secondary-bg);
+}
+
+.swagger-ui table.parameters thead th,
+.swagger-ui table.responses-table thead td {
+  background-color: var(--color-tertiary-bg) !important;
+  color: var(--color-primary-text) !important;
+  border-bottom: 1px solid var(--color-border);
+  text-align: left;
+  padding: 8px 12px;
+}
+
+.swagger-ui table.parameters td,
+.swagger-ui table.responses-table td {
+  padding: 10px 15px;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-primary-text) !important;
+}
+
+.swagger-ui .parameters-col_description input,
+.swagger-ui .parameters-col_description select,
+.swagger-ui .parameters-col_description textarea {
+  background-color: var(--color-primary-bg) !important;
+  color: var(--color-primary-text) !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--border-radius);
+  transition: all var(--transition-speed) ease;
+  width: 100%;
+  padding: 0.5rem;
+}
+
+.swagger-ui .parameters-col_description input:focus,
+.swagger-ui .parameters-col_description select:focus,
+.swagger-ui .parameters-col_description textarea:focus {
+  border-color: var(--color-accent) !important;
+  box-shadow: 0 0 5px var(--color-accent);
+}
+
+.swagger-ui .responses-table {
+  border-collapse: collapse;
+}
+
+.swagger-ui .response-col_status {
+  color: var(--color-primary-text) !important;
+}
+
+
+/* === PARAMETERS TABLE STYLING =============================================== */
+
+.swagger-ui .parameters-container {
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.swagger-ui table.parameters {
+  width: 60% !important;
+  max-width: 60% !important;
+  min-width: 400px;
+  table-layout: auto;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  border-collapse: collapse;
+  background-color: var(--color-secondary-bg);
+}
+
+.swagger-ui table.parameters thead th {
+  background-color: var(--color-tertiary-bg) !important;
+  color: var(--color-primary-text) !important;
+  border-bottom: 1px solid var(--color-border);
+  text-align: left;
+  padding: 8px 12px;
+}
+
+.swagger-ui table.parameters td {
+  padding: 10px 15px;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-primary-text) !important;
+  vertical-align: top;
+}
+
+.swagger-ui .parameters-col_name .parameter__name {
+  font-weight: bold;
+  color: var(--color-primary-text) !important;
+}
+
+.swagger-ui .parameters-col_name .parameter__type,
+.swagger-ui .parameters-col_name .parameter__in {
+  font-style: italic;
+  color: var(--color-secondary-text) !important;
+  font-size: 0.9em;
+}
+
+.swagger-ui .parameters-col_description input,
+.swagger-ui .parameters-col_description select,
+.swagger-ui .parameters-col_description textarea {
+  background-color: var(--color-primary-bg) !important;
+  color: var(--color-primary-text) !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--border-radius);
+  width: 100%;
+  padding: 0.5rem;
+  transition: all var(--transition-speed) ease;
+}
+
+.swagger-ui .parameters-col_description input:focus,
+.swagger-ui .parameters-col_description select:focus,
+.swagger-ui .parameters-col_description textarea:focus {
+  border-color: var(--color-accent) !important;
+  box-shadow: 0 0 5px var(--color-accent);
+}
+
+
+
+/* === ARROWS & ICONS ========================================================= */
+.swagger-ui .opblock-control-arrow svg path {
+  fill: var(--color-primary-text) !important;
+  transition: fill var(--transition-speed) ease;
+}
+
+.swagger-ui .opblock-control-arrow:hover svg path {
+  fill: var(--color-accent) !important;
+}
+
+.swagger-ui .copy-to-clipboard button svg {
+  fill: var(--color-primary-text) !important;
+}
+
+.swagger-ui .copy-to-clipboard button:hover svg {
+  fill: var(--color-accent) !important;
+}
+
+/* === BUTTONS ================================================================ */
+.swagger-ui .btn {
+  background-color: var(--color-tertiary-bg) !important;
+  color: var(--color-primary-text) !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--border-radius);
+}
+
+.swagger-ui .btn:hover {
+  background-color: #444 !important;
+  border-color: #666 !important;
+}
+
+.swagger-ui .btn.execute {
+  background-color: var(--color-accent) !important;
+  color: #ffffff !important;
+}
+
+.swagger-ui .btn.execute:hover {
+  background-color: var(--color-accent-hover) !important;
+}
+
+/* === SCHEMAS ================================================================ */
+.swagger-ui .model-box {
+  background-color: var(--color-secondary-bg) !important;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  padding: 1rem;
+}
+
+.swagger-ui .model-title {
+  color: var(--color-primary-text) !important;
+}
+
+.swagger-ui .model-toggle:after {
+  color: var(--color-accent);
+}
+
+/* === SCROLLBARS ============================================================= */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-secondary-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-tertiary-bg);
+  border-radius: var(--border-radius);
+  border: 2px solid var(--color-secondary-bg);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* === PARAMETERS TABLE FINAL PATCH =========================================== */
+.swagger-ui .parameters-container {
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.swagger-ui table.parameters {
+  width: 60% !important;
+  max-width: 60% !important;
+  min-width: 400px;
+  table-layout: auto;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  border-collapse: collapse;
+  background-color: var(--color-secondary-bg);
+}
+
+.swagger-ui table.parameters thead th {
+  background-color: var(--color-tertiary-bg) !important;
+  color: var(--color-primary-text) !important;
+  border-bottom: 1px solid var(--color-border);
+  text-align: left;
+  padding: 8px 12px;
+}
+
+.swagger-ui table.parameters td {
+  padding: 10px 15px;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-primary-text) !important;
+  vertical-align: top;
+}
+
+.swagger-ui .parameters-col_name .parameter__name {
+  font-weight: bold;
+  color: var(--color-primary-text) !important;
+}
+
+.swagger-ui .parameters-col_name .parameter__type,
+.swagger-ui .parameters-col_name .parameter__in {
+  display: block;
+  font-style: italic;
+  color: var(--color-secondary-text) !important;
+  font-size: 0.9em;
+}
+
+.swagger-ui .parameters-col_description input,
+.swagger-ui .parameters-col_description select,
+.swagger-ui .parameters-col_description textarea {
+  background-color: var(--color-primary-bg) !important;
+  color: var(--color-primary-text) !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--border-radius);
+  width: 100%;
+  padding: 0.5rem;
+  transition: all var(--transition-speed) ease;
+}
+
+.swagger-ui .parameters-col_description input:focus,
+.swagger-ui .parameters-col_description select:focus,
+.swagger-ui .parameters-col_description textarea:focus {
+  border-color: var(--color-accent) !important;
+  box-shadow: 0 0 5px var(--color-accent);
+}
+
+/* === PARAMETERS TABLE CONTAINER ============================================= */
+.swagger-ui .parameters-container .table-container {
+  display: flex;
+  justify-content: center;
+}
+
+.swagger-ui .parameters-container .table-container table.parameters {
+  width: 60% !important;
+  max-width: 60% !important;
+  min-width: 400px;
+  table-layout: auto;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  border-collapse: collapse;
+  background-color: var(--color-secondary-bg);
+}
+
+
+/* === PARAMETERS TABLE CONTAINER FULL FIX ==================================== */
+
+.swagger-ui .parameters-container .table-container {
+  display: flex !important;
+  justify-content: center !important;
+  width: 100% !important;
+  padding: 0 !important;
+}
+
+.swagger-ui .parameters-container .table-container table.parameters {
+  width: 60% !important;
+  max-width: 60% !important;
+  min-width: 400px !important;
+  table-layout: auto !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--border-radius) !important;
+  border-collapse: collapse !important;
+  background-color: var(--color-secondary-bg) !important;
+}
+
+.swagger-ui .parameters-container .table-container table.parameters thead th {
+  background-color: var(--color-tertiary-bg) !important;
+  color: var(--color-primary-text) !important;
+  border-bottom: 1px solid var(--color-border) !important;
+  text-align: left !important;
+  padding: 8px 12px !important;
+}
+
+.swagger-ui .parameters-container .table-container table.parameters td {
+  padding: 10px 15px !important;
+  border-bottom: 1px solid var(--color-border) !important;
+  color: var(--color-primary-text) !important;
+  vertical-align: top !important;
+}
+
+.swagger-ui .parameters-container .table-container table.parameters input,
+.swagger-ui .parameters-container .table-container table.parameters select,
+.swagger-ui .parameters-container .table-container table.parameters textarea {
+  background-color: var(--color-primary-bg) !important;
+  color: var(--color-primary-text) !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--border-radius) !important;
+  width: 100% !important;
+  padding: 0.5rem !important;
+  transition: all var(--transition-speed) ease !important;
+}
+
+/* === GLOBAL FONT SIZE IMPROVEMENT =========================================== */
+
+body, .swagger-ui {
+  font-size: 16px !important;
+  line-height: 1.5 !important;
+}
+
+/* === HEADINGS ============================================================= */
+
+.swagger-ui h1 { font-size: 2em !important; }
+.swagger-ui h2 { font-size: 1.75em !important; }
+.swagger-ui h3 { font-size: 1.5em !important; }
+.swagger-ui h4 { font-size: 1.25em !important; }
+.swagger-ui h5 { font-size: 1.1em !important; }
+
+/* === TABLES & PARAMETERS TEXT ============================================== */
+
+.swagger-ui table.parameters td,
+.swagger-ui table.responses-table td,
+.swagger-ui .parameter__name,
+.swagger-ui .parameter__type,
+.swagger-ui .parameter__in,
+.swagger-ui .opblock-summary-path,
+.swagger-ui .opblock-summary-description {
+  font-size: 1em !important;
+}
+
+/* === OPERATION SUMMARY HEADER ============================================== */
+
+/* 1. Increase main header font size */
+.swagger-ui .opblock-summary-description {
+  font-size: 24px !important;
+  font-weight: bold;
+}
+
+/* 2. Add padding around GET tag */
+.swagger-ui .opblock-summary-method {
+  padding: 5px 10px !important;
+  margin-right: 10px;
+  font-size: 1em;
+}
+
+/* 3. Increase device link/path text size */
+.swagger-ui .opblock-summary-path span {
+  font-size: 14px !important;
+}
+
+/* 4. Adjust aria-label button container width and background */
+.swagger-ui .opblock-summary-control {
+  width: 60% !important;
+  background-color: var(--color-secondary-bg) !important;
+  float: left;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* 5. Enlarge and float copy-to-clipboard button to right */
+.swagger-ui .copy-to-clipboard {
+  float: right;
+  margin-left: auto;
+}
+
+.swagger-ui .copy-to-clipboard svg {
+  width: 24px !important;
+  height: 24px !important;
+}
+
+/* 6. Align opblock-control-arrow to right on same row */
+.swagger-ui .opblock-control-arrow {
+  float: right;
+  background-color: transparent !important;
+  margin-left: 10px;
+}
+
+/* 7. Remove white background from opblock-control-arrow svg */
+.swagger-ui .opblock-control-arrow svg path {
+  fill: var(--color-primary-text) !important;
+}
+
+.swagger-ui .opblock-control-arrow:hover svg path {
+  fill: var(--color-accent) !important;
+}
+
+/* === OPERATION SUMMARY FLEX LAYOUT ========================================= */
+
+.swagger-ui .opblock-summary {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  flex-wrap: nowrap !important;
+}
+
+/* Adjust the button container */
+.swagger-ui .opblock-summary-control {
+  flex: 1 1 auto !important;
+  display: flex !important;
+  align-items: center !important;
+  background-color: var(--color-secondary-bg) !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Style GET tag with spacing */
+.swagger-ui .opblock-summary-method {
+  padding: 5px 10px !important;
+  margin-right: 10px !important;
+  font-size: 1em !important;
+}
+
+/* Path text sizing */
+.swagger-ui .opblock-summary-path span {
+  font-size: 14px !important;
+}
+
+/* Main description (Get All Devices) header size */
+.swagger-ui .opblock-summary-description {
+  font-size: 20px !important;
+  font-weight: bold !important;
+  margin-left: 10px !important;
+}
+
+/* Copy to clipboard button styling */
+.swagger-ui .copy-to-clipboard {
+  flex: 0 0 auto !important;
+  margin-left: 10px !important;
+}
+
+.swagger-ui .copy-to-clipboard svg {
+  width: 24px !important;
+  height: 24px !important;
+}
+
+/* Control arrow button styling */
+.swagger-ui .opblock-control-arrow {
+  flex: 0 0 auto !important;
+  margin-left: 10px !important;
+  background-color: transparent !important;
+}
+
+/* Ensure arrow icons inherit dark theme color */
+.swagger-ui .opblock-control-arrow svg path {
+  fill: var(--color-primary-text) !important;
+}
+
+.swagger-ui .opblock-control-arrow:hover svg path {
+  fill: var(--color-accent) !important;
+}
+
+/* === TRY IT OUT BUTTON ==================================================== */
+
+.swagger-ui .try-out__btn {
+  background-color: var(--color-accent) !important;
+  color: #ffffff !important;
+  font-weight: bold !important;
+  font-size: 1rem !important;
+  padding: 10px 20px !important;
+  border-radius: var(--border-radius) !important;
+  transition: background-color var(--transition-speed) ease;
+}
+
+.swagger-ui .try-out__btn:hover {
+  background-color: var(--color-accent-hover) !important;
+}
+
+
+/* Replace 'FastAPI' title with 'OLY-Inventory Manager' */
+document.addEventListener('DOMContentLoaded', function() {
+  const titleElement = document.querySelector('.information-container h2.title');
+  if (titleElement) {
+    // Replace only the main text node, preserve <span> children
+    const textNodes = Array.from(titleElement.childNodes).filter(n => n.nodeType === Node.TEXT_NODE);
+    if (textNodes.length > 0) {
+      textNodes[0].textContent = "OLY-Inventory Manager";
+    }
+  }
+});
+
+/* === TOP TITLE AREA MODERNIZED ============================================ */
+
+.swagger-ui .information-container .title {
+  font-size: 2rem !important;
+  color: var(--color-accent) !important;
+  font-weight: 600 !important;
+  display: flex !important;
+  align-items: baseline !important;
+  justify-content: space-between !important;
+}
+
+/* Adjust span container to align right */
+.swagger-ui .information-container .title span {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  margin-left: auto;
+}
+
+/* Style version badges */
+.swagger-ui .information-container .version,
+.swagger-ui .information-container .version-stamp {
+  background-color: var(--color-tertiary-bg) !important;
+  color: var(--color-primary-text) !important;
+  padding: 2px 6px;
+  border-radius: var(--border-radius);
+  font-size: 0.8rem !important;
+}
+
+.swagger-ui .information-container .title {
+  font-size: 2rem !important;
+  color: var(--color-accent) !important;
+  font-weight: 600 !important;
+  position: relative; /* enable positioning of inner elements */
+}
+
+.swagger-ui .information-container .title span {
+  margin-left: 10px; /* space between title and versions */
+}
+
+.swagger-ui .information-container .title small {
+  display: inline-block;
+  background-color: var(--color-tertiary-bg);
+  color: var(--color-primary-text);
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 0.7em;
+  vertical-align: super; /* acts like superscript */
+  margin-left: 5px;
+}
+
+.swagger-ui .information-container .title small pre.version {
+  margin: 0;
+  font-family: var(--font-family-mono);
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.swagger-ui .information-container .main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.swagger-ui .information-container .title {
+  margin: 0; /* remove any default bottom margin that causes stacking */
+}
+
+.swagger-ui .information-container .link {
+  font-size: 0.9em;
+  color: var(--color-secondary-text);
+  background-color: var(--color-tertiary-bg);
+  padding: 4px 8px;
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.swagger-ui .information-container .link:hover {
+  background-color: var(--color-accent-hover);
+  color: var(--color-primary-text);
+}
+
+.swagger-ui .information-container .info__description {
+  margin-top: 10px;
+  margin-left: 20%;
+  padding: 10px 20px;
+  background-color: var(--color-secondary-bg);
+  border-left: 4px solid var(--color-accent);
+  border-radius: var(--border-radius);
+  color: var(--color-primary-text);
+  max-width: 80%; /* optional, keep it from stretching full width */
+  box-sizing: border-box;
+}
+
+/* Center the entire information header block except the link and description */
+.swagger-ui .information-container .info {
+  text-align: center;
+  margin-bottom: 1rem;
+  position: relative; /* enables absolute positioning within */
+}
+
+/* Main hgroup remains centered */
+.swagger-ui .information-container .main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Title styling */
+.swagger-ui .information-container .title {
+  font-size: 2rem !important;
+  color: var(--color-accent) !important;
+  font-weight: 700 !important;
+  display: inline-flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+/* Version tags layout beside title */
+.swagger-ui .information-container .title span {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: flex-start;
+  margin-left: 10px;
+}
+
+.swagger-ui .information-container .title small {
+  display: inline;
+  margin-left: 5px;
+}
+
+.swagger-ui .information-container .title pre.version {
+  background-color: var(--color-tertiary-bg) !important;
+  color: var(--color-primary-text) !important;
+  padding: 2px 6px;
+  border-radius: var(--border-radius);
+  font-size: 0.8rem !important;
+}
+
+/* Move the openapi.json link to the far right of the page */
+.swagger-ui .information-container .link {
+  position: absolute;
+  right: 2rem;
+  top: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--color-secondary-text) !important;
+}
+
+/* Reset information container layout to clean centered block */
+.swagger-ui .information-container .info {
+  text-align: center;
+  margin: 1rem auto;
+}
+
+/* Center the main hgroup title and tags */
+.swagger-ui .information-container .main {
+  display: inline-block;
+  text-align: center;
+}
+
+/* Title styling */
+.swagger-ui .information-container .title {
+  font-size: 2rem !important;
+  color: var(--color-accent) !important;
+  font-weight: 700 !important;
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: center;
+}
+
+/* Version tags beside title as superscript style */
+.swagger-ui .information-container .title span {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: baseline;
+  margin-left: 10px;
+}
+
+.swagger-ui .information-container .title small {
+  display: inline;
+  margin-left: 5px;
+}
+
+.swagger-ui .information-container .title pre.version {
+  background-color: var(--color-tertiary-bg) !important;
+  color: var(--color-primary-text) !important;
+  padding: 2px 6px;
+  border-radius: var(--border-radius);
+  font-size: 0.8rem !important;
+}
+
+/* Center the openapi.json link below title */
+.swagger-ui .information-container .link {
+  display: block;
+  margin: 0.5rem auto;
+  font-size: 0.9rem;
+  color: var(--color-secondary-text) !important;
+}
+
+/* Center the description text below */
+.swagger-ui .information-container .info__description {
+  max-width: 600px;
+  margin: 0.5rem auto;
+  text-align: center;
+  font-size: 1rem;
+  border-right: 4px solid var(--color-accent); /* blue line on right side */
+  color: var(--color-secondary-text);
+}
+
+/* Center the entire title block and tags */
+.swagger-ui .information-container .main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+/* Title text styling */
+.swagger-ui .information-container .title {
+  font-size: 2rem !important;
+  color: var(--color-accent) !important;
+  font-weight: 600 !important;
+  margin-right: 10px;
+}
+
+/* Ensure version tags are inline and centered with title */
+.swagger-ui .information-container .title span {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+/* Style version numbers as superscript chips */
+.swagger-ui .information-container .title small {
+  background-color: var(--color-tertiary-bg) !important;
+  color: var(--color-primary-text) !important;
+  padding: 2px 6px;
+  border-radius: var(--border-radius);
+  font-size: 0.8rem !important;
+  margin-left: 5px;
+}
+
+/* Position openapi.json link to far right */
+.swagger-ui .information-container .link {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  font-size: 0.9rem;
+}
+
+/* Center the description text below with right blue line */
+.swagger-ui .information-container .info__description {
+  max-width: 600px;
+  margin: 0.5rem auto;
+  text-align: center;
+  font-size: 1rem;
+  color: var(--color-secondary-text);
+  border-right: 4px solid var(--color-accent);
+  padding-right: 10px;
+  display: inline-block;
+}
+
+/* === TAG SECTION ARROW STYLING ============================================= */
+
+.swagger-ui .opblock-tag-section .expand-operation svg path {
+  fill: var(--color-secondary-text) !important;
+  opacity: 0.6 !important;
+  transition: fill var(--transition-speed) ease, opacity var(--transition-speed) ease;
+}
+
+.swagger-ui .opblock-tag-section .expand-operation:hover svg path {
+  fill: var(--color-accent) !important;
+  opacity: 1 !important;
+}
+
+/* === ENDPOINT ARROW STYLING ================================================ */
+
+.swagger-ui .opblock-summary .opblock-control-arrow svg path {
+  fill: var(--color-secondary-text) !important;
+  opacity: 0.6 !important;
+  transition: fill var(--transition-speed) ease, opacity var(--transition-speed) ease;
+}
+
+.swagger-ui .opblock-summary .opblock-control-arrow:hover svg path {
+  fill: var(--color-accent) !important;
+  opacity: 1 !important;
+}
+
+/* === EXPAND-OPERATION BUTTON DARK THEME FIX =============================== */
+
+.swagger-ui .expand-operation {
+  background-color: transparent !important; /* remove default white bg */
+  border: none !important; /* remove any border if present */
+  padding: 4px; /* optional: tweak spacing for better visuals */
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color var(--transition-speed) ease;
+}
+
+.swagger-ui .expand-operation:hover {
+  background-color: var(--color-tertiary-bg) !important; /* subtle hover highlight */
+}
+
+/* === EXPAND-OPERATION BUTTON LEFT PADDING ================================ */
+
+.swagger-ui .expand-operation {
+  padding-left: 8px  !important; /* adjust value as needed */
+}
+
+/* === HIDE SCHEMAS/MODELS SECTION COMPLETELY ============================== */
+.swagger-ui .models {
+  display: none !important;
+}
+
+/* === ADD LEFT PADDING TO PARAMETERS HEADER ================================== */
+.swagger-ui .opblock-section-header {
+  padding-left: 20% !important;
+}
+
+
+/* === TRY IT OUT BUTTON RIGHT ALIGNMENT ====================================== */
+.swagger-ui .opblock-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 20%;  /* as you wanted earlier */
+  padding-right: 20%; /* new: adds ~20% right margin */
+}
+
+.swagger-ui .opblock-section-header .try-out {
+  margin-right: 0; /* ensures no conflicting margins */
+}
+
+.swagger-ui .opblock-section-header .btn.try-out__btn {
+  margin-right: 0;  /* removes any default margin */
+}
+
+/* Align request body section similar to tables */
+.swagger-ui .opblock-section-request-body {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.swagger-ui .opblock-section-request-body .opblock-description-wrapper {
+  width: 60%; /* match parameter/response table width */
+  max-width: 60%;
+  min-width: 400px;
+}
+
+/* Style the textarea for dark theme consistency */
+.swagger-ui .body-param__text {
+  width: 100%;
+  min-height: 150px;
+  background-color: var(--color-primary-bg) !important;
+  color: var(--color-primary-text) !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--border-radius);
+  padding: 0.5rem;
+  font-family: var(--font-family-mono);
+  font-size: 1rem;
+  transition: all var(--transition-speed) ease;
+}
+
+.swagger-ui .body-param__text:focus {
+  border-color: var(--color-accent) !important;
+  box-shadow: 0 0 5px var(--color-accent);
+}
+
+
+/* Match execute button to Try it Out button styling and position */
+.swagger-ui .execute-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 20%; /* similar right margin as Try it Out */
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.swagger-ui .btn.execute {
+  font-size: 1rem;
+  padding: 0.5rem 1.25rem;
+  border-radius: var(--border-radius);
+}
+
+/* Style Execute and Clear buttons consistently within .btn-group */
+.swagger-ui .btn-group {
+  display: flex;
+  justify-content: flex-end; /* right align both buttons */
+  padding-right: 20%; /* match Try it Out and Execute position */
+  gap: 0.5rem; /* space between buttons */
+}
+
+/* Style Execute button */
+.swagger-ui .btn.execute {
+  font-size: 1rem;
+  padding: 0.5rem 1.25rem;
+  border-radius: var(--border-radius);
+  background-color: var(--color-accent) !important;
+  color: #ffffff !important;
+  border: 1px solid var(--color-accent) !important;
+}
+
+.swagger-ui .btn.execute:hover {
+  background-color: var(--color-accent-hover) !important;
+  border-color: var(--color-accent-hover) !important;
+}
+
+/* Style Clear button to match size but remain grey */
+.swagger-ui .btn.btn-clear {
+  font-size: 1rem;
+  padding: 0.5rem 1.25rem;
+  border-radius: var(--border-radius);
+  background-color: var(--color-tertiary-bg) !important;
+  color: var(--color-primary-text) !important;
+  border: 1px solid var(--color-border) !important;
+}
+
+.swagger-ui .btn.btn-clear:hover {
+  background-color: #444 !important;
+  border-color: #666 !important;
+}
+  
