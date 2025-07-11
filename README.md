@@ -5,6 +5,10 @@ As of initial upload: It is a work-in-progress, but many elements are themed (an
 <img width="360" height="244" alt="image" src="https://github.com/user-attachments/assets/ca968ac1-df17-437b-9662-b6af2c281d89" />
 
 ---
+# Versioning stuff
+The version this is tested with is OpenAPI 3.1
+---
+
 # Rough instructions
 
 If you are running fastapi, you will need to create a directory like "static" in the root directory of your project.
