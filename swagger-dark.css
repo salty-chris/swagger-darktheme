@@ -1,11 +1,11 @@
-/*
+/**
  * ================================================================================
  * Commercial-Grade Dark Theme for OpenAPI/Swagger UI
- * FINAL FULL PATCHED VERSION
+ * https://github.com/salty-chris/swagger-darktheme/edit/main/swagger-dark.css
  * ================================================================================
  */
 
-/* === ROOT VARIABLES ========================================================= */
+/* === ROOT & GLOBAL VARIABLES ============================================== */
 :root {
   --color-primary-bg: #1a1a1a;
   --color-secondary-bg: #262626;
@@ -23,299 +23,51 @@
   --font-family-mono: "Fira Code", "Courier New", monospace;
   --border-radius: 4px;
   --transition-speed: 0.2s;
+  --content-width: 60%;
+  --content-min-width: 400px;
 }
 
 /* === GENERAL & BODY ========================================================= */
-body, .swagger-ui {
+body,
+.swagger-ui {
   background-color: var(--color-primary-bg) !important;
   color: var(--color-primary-text) !important;
   font-family: var(--font-family-sans) !important;
+  font-size: 16px !important;
+  line-height: 1.5 !important;
 }
 
-/* === TYPOGRAPHY ============================================================= */
+/* === ACCESSIBILITY / SELECTION =========================================== */
+.swagger-ui ::selection {
+  background: var(--color-accent) !important;
+  color: #fff !important;
+}
+
+/* === TYPOGRAPHY & LINKS =================================================== */
 .swagger-ui h1, .swagger-ui h2, .swagger-ui h3, .swagger-ui h4, .swagger-ui h5 {
   color: var(--color-primary-text) !important;
 }
+.swagger-ui h1 { font-size: 2em !important; }
+.swagger-ui h2 { font-size: 1.75em !important; }
+.swagger-ui h3 { font-size: 1.5em !important; }
+.swagger-ui h4 { font-size: 1.25em !important; }
+.swagger-ui h5 { font-size: 1.1em !important; }
 
 .swagger-ui a {
   color: var(--color-accent) !important;
   transition: color var(--transition-speed) ease;
 }
-
 .swagger-ui a:hover {
   color: var(--color-accent-hover) !important;
 }
 
-.swagger-ui code, .swagger-ui pre {
+.swagger-ui code,
+.swagger-ui pre {
   font-family: var(--font-family-mono);
   background-color: var(--color-secondary-bg) !important;
   color: var(--color-primary-text) !important;
   border-radius: var(--border-radius);
   border: 1px solid var(--color-border);
-}
-
-/* === TOPBAR ================================================================= */
-.swagger-ui .topbar {
-  background-color: var(--color-secondary-bg) !important;
-  border-bottom: 1px solid var(--color-border);
-}
-
-.swagger-ui .topbar .download-url-wrapper input[type=text] {
-  background-color: var(--color-primary-bg) !important;
-  color: var(--color-primary-text) !important;
-  border: 1px solid var(--color-border) !important;
-  border-radius: var(--border-radius);
-}
-
-.swagger-ui .topbar .download-url-wrapper input[type=text]:focus {
-  border-color: var(--color-accent) !important;
-  box-shadow: 0 0 5px var(--color-accent);
-}
-
-.swagger-ui .topbar .download-url-button {
-  background-color: var(--color-accent) !important;
-  color: #ffffff !important;
-  border-radius: var(--border-radius);
-}
-
-.swagger-ui .topbar .download-url-button:hover {
-  background-color: var(--color-accent-hover) !important;
-}
-
-/* === OPERATION BLOCKS ======================================================= */
-.swagger-ui .opblock {
-  background-color: var(--color-secondary-bg) !important;
-  border: 1px solid var(--color-border) !important;
-  border-radius: var(--border-radius);
-  margin-bottom: 1rem;
-}
-
-.swagger-ui .opblock-summary {
-  background-color: transparent !important;
-  border-bottom: none !important;
-  padding: 0.5rem 1rem !important;
-}
-
-.swagger-ui .opblock-summary:hover {
-  background-color: var(--color-tertiary-bg) !important;
-}
-
-.swagger-ui .opblock-summary-method {
-  border-radius: var(--border-radius);
-  font-weight: bold;
-  font-size: 0.9em;
-}
-
-.swagger-ui .opblock.opblock-get .opblock-summary-method { background-color: var(--color-info) !important; }
-.swagger-ui .opblock.opblock-post .opblock-summary-method { background-color: var(--color-success) !important; }
-.swagger-ui .opblock.opblock-put .opblock-summary-method { background-color: var(--color-warning) !important; color: #111 !important; }
-.swagger-ui .opblock.opblock-delete .opblock-summary-method { background-color: var(--color-danger) !important; }
-.swagger-ui .opblock.opblock-patch .opblock-summary-method { background-color: #6c757d !important; }
-
-.swagger-ui .opblock-summary-path {
-  font-family: var(--font-family-mono);
-  color: var(--color-primary-text) !important;
-}
-
-.swagger-ui .opblock-summary-description {
-  color: var(--color-secondary-text) !important;
-}
-
-.swagger-ui .opblock-tag {
-  color: var(--color-accent) !important;
-}
-
-.swagger-ui .opblock .opblock-section-header {
-  background-color: var(--color-tertiary-bg) !important;
-  border-top: 1px solid var(--color-border);
-  border-bottom: 1px solid var(--color-border);
-}
-
-/* === PARAMETERS & RESPONSES ================================================= */
-.swagger-ui .parameters-container,
-.swagger-ui .responses-inner {
-  padding: 1rem;
-  display: flex;
-  justify-content: center; /* center tables horizontally */
-}
-
-.swagger-ui table.parameters,
-.swagger-ui table.responses-table {
-  width: 60% !important; /* constrain to ~60% page width */
-  max-width: 60% !important;
-  min-width: 400px; /* prevent excessive narrowing */
-  table-layout: auto;
-  border: 1px solid var(--color-border);
-  border-radius: var(--border-radius);
-  border-collapse: collapse;
-  background-color: var(--color-secondary-bg);
-}
-
-.swagger-ui table.parameters thead th,
-.swagger-ui table.responses-table thead td {
-  background-color: var(--color-tertiary-bg) !important;
-  color: var(--color-primary-text) !important;
-  border-bottom: 1px solid var(--color-border);
-  text-align: left;
-  padding: 8px 12px;
-}
-
-.swagger-ui table.parameters td,
-.swagger-ui table.responses-table td {
-  padding: 10px 15px;
-  border-bottom: 1px solid var(--color-border);
-  color: var(--color-primary-text) !important;
-}
-
-.swagger-ui .parameters-col_description input,
-.swagger-ui .parameters-col_description select,
-.swagger-ui .parameters-col_description textarea {
-  background-color: var(--color-primary-bg) !important;
-  color: var(--color-primary-text) !important;
-  border: 1px solid var(--color-border) !important;
-  border-radius: var(--border-radius);
-  transition: all var(--transition-speed) ease;
-  width: 100%;
-  padding: 0.5rem;
-}
-
-.swagger-ui .parameters-col_description input:focus,
-.swagger-ui .parameters-col_description select:focus,
-.swagger-ui .parameters-col_description textarea:focus {
-  border-color: var(--color-accent) !important;
-  box-shadow: 0 0 5px var(--color-accent);
-}
-
-.swagger-ui .responses-table {
-  border-collapse: collapse;
-}
-
-.swagger-ui .response-col_status {
-  color: var(--color-primary-text) !important;
-}
-
-
-/* === PARAMETERS TABLE STYLING =============================================== */
-
-.swagger-ui .parameters-container {
-  padding: 1rem;
-  display: flex;
-  justify-content: center;
-}
-
-.swagger-ui table.parameters {
-  width: 60% !important;
-  max-width: 60% !important;
-  min-width: 400px;
-  table-layout: auto;
-  border: 1px solid var(--color-border);
-  border-radius: var(--border-radius);
-  border-collapse: collapse;
-  background-color: var(--color-secondary-bg);
-}
-
-.swagger-ui table.parameters thead th {
-  background-color: var(--color-tertiary-bg) !important;
-  color: var(--color-primary-text) !important;
-  border-bottom: 1px solid var(--color-border);
-  text-align: left;
-  padding: 8px 12px;
-}
-
-.swagger-ui table.parameters td {
-  padding: 10px 15px;
-  border-bottom: 1px solid var(--color-border);
-  color: var(--color-primary-text) !important;
-  vertical-align: top;
-}
-
-.swagger-ui .parameters-col_name .parameter__name {
-  font-weight: bold;
-  color: var(--color-primary-text) !important;
-}
-
-.swagger-ui .parameters-col_name .parameter__type,
-.swagger-ui .parameters-col_name .parameter__in {
-  font-style: italic;
-  color: var(--color-secondary-text) !important;
-  font-size: 0.9em;
-}
-
-.swagger-ui .parameters-col_description input,
-.swagger-ui .parameters-col_description select,
-.swagger-ui .parameters-col_description textarea {
-  background-color: var(--color-primary-bg) !important;
-  color: var(--color-primary-text) !important;
-  border: 1px solid var(--color-border) !important;
-  border-radius: var(--border-radius);
-  width: 100%;
-  padding: 0.5rem;
-  transition: all var(--transition-speed) ease;
-}
-
-.swagger-ui .parameters-col_description input:focus,
-.swagger-ui .parameters-col_description select:focus,
-.swagger-ui .parameters-col_description textarea:focus {
-  border-color: var(--color-accent) !important;
-  box-shadow: 0 0 5px var(--color-accent);
-}
-
-
-
-/* === ARROWS & ICONS ========================================================= */
-.swagger-ui .opblock-control-arrow svg path {
-  fill: var(--color-primary-text) !important;
-  transition: fill var(--transition-speed) ease;
-}
-
-.swagger-ui .opblock-control-arrow:hover svg path {
-  fill: var(--color-accent) !important;
-}
-
-.swagger-ui .copy-to-clipboard button svg {
-  fill: var(--color-primary-text) !important;
-}
-
-.swagger-ui .copy-to-clipboard button:hover svg {
-  fill: var(--color-accent) !important;
-}
-
-/* === BUTTONS ================================================================ */
-.swagger-ui .btn {
-  background-color: var(--color-tertiary-bg) !important;
-  color: var(--color-primary-text) !important;
-  border: 1px solid var(--color-border) !important;
-  border-radius: var(--border-radius);
-}
-
-.swagger-ui .btn:hover {
-  background-color: #444 !important;
-  border-color: #666 !important;
-}
-
-.swagger-ui .btn.execute {
-  background-color: var(--color-accent) !important;
-  color: #ffffff !important;
-}
-
-.swagger-ui .btn.execute:hover {
-  background-color: var(--color-accent-hover) !important;
-}
-
-/* === SCHEMAS ================================================================ */
-.swagger-ui .model-box {
-  background-color: var(--color-secondary-bg) !important;
-  border: 1px solid var(--color-border);
-  border-radius: var(--border-radius);
-  padding: 1rem;
-}
-
-.swagger-ui .model-title {
-  color: var(--color-primary-text) !important;
-}
-
-.swagger-ui .model-toggle:after {
-  color: var(--color-accent);
 }
 
 /* === SCROLLBARS ============================================================= */
@@ -323,824 +75,19 @@ body, .swagger-ui {
   width: 10px;
   height: 10px;
 }
-
 ::-webkit-scrollbar-track {
   background: var(--color-secondary-bg);
 }
-
 ::-webkit-scrollbar-thumb {
   background: var(--color-tertiary-bg);
   border-radius: var(--border-radius);
   border: 2px solid var(--color-secondary-bg);
 }
-
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
 
-/* === PARAMETERS TABLE FINAL PATCH =========================================== */
-.swagger-ui .parameters-container {
-  padding: 1rem;
-  display: flex;
-  justify-content: center;
-}
-
-.swagger-ui table.parameters {
-  width: 60% !important;
-  max-width: 60% !important;
-  min-width: 400px;
-  table-layout: auto;
-  border: 1px solid var(--color-border);
-  border-radius: var(--border-radius);
-  border-collapse: collapse;
-  background-color: var(--color-secondary-bg);
-}
-
-.swagger-ui table.parameters thead th {
-  background-color: var(--color-tertiary-bg) !important;
-  color: var(--color-primary-text) !important;
-  border-bottom: 1px solid var(--color-border);
-  text-align: left;
-  padding: 8px 12px;
-}
-
-.swagger-ui table.parameters td {
-  padding: 10px 15px;
-  border-bottom: 1px solid var(--color-border);
-  color: var(--color-primary-text) !important;
-  vertical-align: top;
-}
-
-.swagger-ui .parameters-col_name .parameter__name {
-  font-weight: bold;
-  color: var(--color-primary-text) !important;
-}
-
-.swagger-ui .parameters-col_name .parameter__type,
-.swagger-ui .parameters-col_name .parameter__in {
-  display: block;
-  font-style: italic;
-  color: var(--color-secondary-text) !important;
-  font-size: 0.9em;
-}
-
-.swagger-ui .parameters-col_description input,
-.swagger-ui .parameters-col_description select,
-.swagger-ui .parameters-col_description textarea {
-  background-color: var(--color-primary-bg) !important;
-  color: var(--color-primary-text) !important;
-  border: 1px solid var(--color-border) !important;
-  border-radius: var(--border-radius);
-  width: 100%;
-  padding: 0.5rem;
-  transition: all var(--transition-speed) ease;
-}
-
-.swagger-ui .parameters-col_description input:focus,
-.swagger-ui .parameters-col_description select:focus,
-.swagger-ui .parameters-col_description textarea:focus {
-  border-color: var(--color-accent) !important;
-  box-shadow: 0 0 5px var(--color-accent);
-}
-
-/* === PARAMETERS TABLE CONTAINER ============================================= */
-.swagger-ui .parameters-container .table-container {
-  display: flex;
-  justify-content: center;
-}
-
-.swagger-ui .parameters-container .table-container table.parameters {
-  width: 60% !important;
-  max-width: 60% !important;
-  min-width: 400px;
-  table-layout: auto;
-  border: 1px solid var(--color-border);
-  border-radius: var(--border-radius);
-  border-collapse: collapse;
-  background-color: var(--color-secondary-bg);
-}
-
-
-/* === PARAMETERS TABLE CONTAINER FULL FIX ==================================== */
-
-.swagger-ui .parameters-container .table-container {
-  display: flex !important;
-  justify-content: center !important;
-  width: 100% !important;
-  padding: 0 !important;
-}
-
-.swagger-ui .parameters-container .table-container table.parameters {
-  width: 60% !important;
-  max-width: 60% !important;
-  min-width: 400px !important;
-  table-layout: auto !important;
-  border: 1px solid var(--color-border) !important;
-  border-radius: var(--border-radius) !important;
-  border-collapse: collapse !important;
-  background-color: var(--color-secondary-bg) !important;
-}
-
-.swagger-ui .parameters-container .table-container table.parameters thead th {
-  background-color: var(--color-tertiary-bg) !important;
-  color: var(--color-primary-text) !important;
-  border-bottom: 1px solid var(--color-border) !important;
-  text-align: left !important;
-  padding: 8px 12px !important;
-}
-
-.swagger-ui .parameters-container .table-container table.parameters td {
-  padding: 10px 15px !important;
-  border-bottom: 1px solid var(--color-border) !important;
-  color: var(--color-primary-text) !important;
-  vertical-align: top !important;
-}
-
-.swagger-ui .parameters-container .table-container table.parameters input,
-.swagger-ui .parameters-container .table-container table.parameters select,
-.swagger-ui .parameters-container .table-container table.parameters textarea {
-  background-color: var(--color-primary-bg) !important;
-  color: var(--color-primary-text) !important;
-  border: 1px solid var(--color-border) !important;
-  border-radius: var(--border-radius) !important;
-  width: 100% !important;
-  padding: 0.5rem !important;
-  transition: all var(--transition-speed) ease !important;
-}
-
-/* === GLOBAL FONT SIZE IMPROVEMENT =========================================== */
-
-body, .swagger-ui {
-  font-size: 16px !important;
-  line-height: 1.5 !important;
-}
-
-/* === HEADINGS ============================================================= */
-
-.swagger-ui h1 { font-size: 2em !important; }
-.swagger-ui h2 { font-size: 1.75em !important; }
-.swagger-ui h3 { font-size: 1.5em !important; }
-.swagger-ui h4 { font-size: 1.25em !important; }
-.swagger-ui h5 { font-size: 1.1em !important; }
-
-/* === TABLES & PARAMETERS TEXT ============================================== */
-
-.swagger-ui table.parameters td,
-.swagger-ui table.responses-table td,
-.swagger-ui .parameter__name,
-.swagger-ui .parameter__type,
-.swagger-ui .parameter__in,
-.swagger-ui .opblock-summary-path,
-.swagger-ui .opblock-summary-description {
-  font-size: 1em !important;
-}
-
-/* === OPERATION SUMMARY HEADER ============================================== */
-
-/* 1. Increase main header font size */
-.swagger-ui .opblock-summary-description {
-  font-size: 24px !important;
-  font-weight: bold;
-}
-
-/* 2. Add padding around GET tag */
-.swagger-ui .opblock-summary-method {
-  padding: 5px 10px !important;
-  margin-right: 10px;
-  font-size: 1em;
-}
-
-/* 3. Increase device link/path text size */
-.swagger-ui .opblock-summary-path span {
-  font-size: 14px !important;
-}
-
-/* 4. Adjust aria-label button container width and background */
-.swagger-ui .opblock-summary-control {
-  width: 60% !important;
-  background-color: var(--color-secondary-bg) !important;
-  float: left;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-}
-
-/* 5. Enlarge and float copy-to-clipboard button to right */
-.swagger-ui .copy-to-clipboard {
-  float: right;
-  margin-left: auto;
-}
-
-.swagger-ui .copy-to-clipboard svg {
-  width: 24px !important;
-  height: 24px !important;
-}
-
-/* 6. Align opblock-control-arrow to right on same row */
-.swagger-ui .opblock-control-arrow {
-  float: right;
-  background-color: transparent !important;
-  margin-left: 10px;
-}
-
-/* 7. Remove white background from opblock-control-arrow svg */
-.swagger-ui .opblock-control-arrow svg path {
-  fill: var(--color-primary-text) !important;
-}
-
-.swagger-ui .opblock-control-arrow:hover svg path {
-  fill: var(--color-accent) !important;
-}
-
-/* === OPERATION SUMMARY FLEX LAYOUT ========================================= */
-
-.swagger-ui .opblock-summary {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  flex-wrap: nowrap !important;
-}
-
-/* Adjust the button container */
-.swagger-ui .opblock-summary-control {
-  flex: 1 1 auto !important;
-  display: flex !important;
-  align-items: center !important;
-  background-color: var(--color-secondary-bg) !important;
-  border: none !important;
-  box-shadow: none !important;
-}
-
-/* Style GET tag with spacing */
-.swagger-ui .opblock-summary-method {
-  padding: 5px 10px !important;
-  margin-right: 10px !important;
-  font-size: 1em !important;
-}
-
-/* Path text sizing */
-.swagger-ui .opblock-summary-path span {
-  font-size: 14px !important;
-}
-
-/* Main description (Get All Devices) header size */
-.swagger-ui .opblock-summary-description {
-  font-size: 20px !important;
-  font-weight: bold !important;
-  margin-left: 10px !important;
-}
-
-/* Copy to clipboard button styling */
-.swagger-ui .copy-to-clipboard {
-  flex: 0 0 auto !important;
-  margin-left: 10px !important;
-}
-
-.swagger-ui .copy-to-clipboard svg {
-  width: 24px !important;
-  height: 24px !important;
-}
-
-/* Control arrow button styling */
-.swagger-ui .opblock-control-arrow {
-  flex: 0 0 auto !important;
-  margin-left: 10px !important;
-  background-color: transparent !important;
-}
-
-/* Ensure arrow icons inherit dark theme color */
-.swagger-ui .opblock-control-arrow svg path {
-  fill: var(--color-primary-text) !important;
-}
-
-.swagger-ui .opblock-control-arrow:hover svg path {
-  fill: var(--color-accent) !important;
-}
-
-/* === TRY IT OUT BUTTON ==================================================== */
-
-.swagger-ui .try-out__btn {
-  background-color: var(--color-accent) !important;
-  color: #ffffff !important;
-  font-weight: bold !important;
-  font-size: 1rem !important;
-  padding: 10px 20px !important;
-  border-radius: var(--border-radius) !important;
-  transition: background-color var(--transition-speed) ease;
-}
-
-.swagger-ui .try-out__btn:hover {
-  background-color: var(--color-accent-hover) !important;
-}
-
-
-/* Replace 'FastAPI' title with 'OLY-Inventory Manager'
-document.addEventListener('DOMContentLoaded', function() {
-  const titleElement = document.querySelector('.information-container h2.title');
-  if (titleElement) {
-    // Replace only the main text node, preserve <span> children
-    const textNodes = Array.from(titleElement.childNodes).filter(n => n.nodeType === Node.TEXT_NODE);
-    if (textNodes.length > 0) {
-      textNodes[0].textContent = "OLY-Inventory Manager";
-    }
-  }
-});*/
-
-/* === TOP TITLE AREA MODERNIZED ============================================ */
-
-.swagger-ui .information-container .title {
-  font-size: 2rem !important;
-  color: var(--color-accent) !important;
-  font-weight: 600 !important;
-  display: flex !important;
-  align-items: baseline !important;
-  justify-content: space-between !important;
-}
-
-/* Adjust span container to align right */
-.swagger-ui .information-container .title span {
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  align-items: center;
-  margin-left: auto;
-}
-
-/* Style version badges */
-.swagger-ui .information-container .version,
-.swagger-ui .information-container .version-stamp {
-  background-color: var(--color-tertiary-bg) !important;
-  color: var(--color-primary-text) !important;
-  padding: 2px 6px;
-  border-radius: var(--border-radius);
-  font-size: 0.8rem !important;
-}
-
-.swagger-ui .information-container .title {
-  font-size: 2rem !important;
-  color: var(--color-accent) !important;
-  font-weight: 600 !important;
-  position: relative; /* enable positioning of inner elements */
-}
-
-.swagger-ui .information-container .title span {
-  margin-left: 10px; /* space between title and versions */
-}
-
-.swagger-ui .information-container .title small {
-  display: inline-block;
-  background-color: var(--color-tertiary-bg);
-  color: var(--color-primary-text);
-  border-radius: 4px;
-  padding: 2px 6px;
-  font-size: 0.7em;
-  vertical-align: super; /* acts like superscript */
-  margin-left: 5px;
-}
-
-.swagger-ui .information-container .title small pre.version {
-  margin: 0;
-  font-family: var(--font-family-mono);
-  background: none;
-  border: none;
-  padding: 0;
-}
-
-.swagger-ui .information-container .main {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.swagger-ui .information-container .title {
-  margin: 0; /* remove any default bottom margin that causes stacking */
-}
-
-.swagger-ui .information-container .link {
-  font-size: 0.9em;
-  color: var(--color-secondary-text);
-  background-color: var(--color-tertiary-bg);
-  padding: 4px 8px;
-  border-radius: var(--border-radius);
-  text-decoration: none;
-  transition: background-color 0.2s ease;
-}
-
-.swagger-ui .information-container .link:hover {
-  background-color: var(--color-accent-hover);
-  color: var(--color-primary-text);
-}
-
-.swagger-ui .information-container .info__description {
-  margin-top: 10px;
-  margin-left: 20%;
-  padding: 10px 20px;
-  background-color: var(--color-secondary-bg);
-  border-left: 4px solid var(--color-accent);
-  border-radius: var(--border-radius);
-  color: var(--color-primary-text);
-  max-width: 80%; /* optional, keep it from stretching full width */
-  box-sizing: border-box;
-}
-
-/* Center the entire information header block except the link and description */
-.swagger-ui .information-container .info {
-  text-align: center;
-  margin-bottom: 1rem;
-  position: relative; /* enables absolute positioning within */
-}
-
-/* Main hgroup remains centered */
-.swagger-ui .information-container .main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* Title styling */
-.swagger-ui .information-container .title {
-  font-size: 2rem !important;
-  color: var(--color-accent) !important;
-  font-weight: 700 !important;
-  display: inline-flex;
-  align-items: flex-start;
-  justify-content: center;
-}
-
-/* Version tags layout beside title */
-.swagger-ui .information-container .title span {
-  display: inline-flex;
-  flex-direction: row;
-  align-items: flex-start;
-  margin-left: 10px;
-}
-
-.swagger-ui .information-container .title small {
-  display: inline;
-  margin-left: 5px;
-}
-
-.swagger-ui .information-container .title pre.version {
-  background-color: var(--color-tertiary-bg) !important;
-  color: var(--color-primary-text) !important;
-  padding: 2px 6px;
-  border-radius: var(--border-radius);
-  font-size: 0.8rem !important;
-}
-
-/* Move the openapi.json link to the far right of the page */
-.swagger-ui .information-container .link {
-  position: absolute;
-  right: 2rem;
-  top: 0.5rem;
-  font-size: 0.9rem;
-  color: var(--color-secondary-text) !important;
-}
-
-/* Reset information container layout to clean centered block */
-.swagger-ui .information-container .info {
-  text-align: center;
-  margin: 1rem auto;
-}
-
-/* Center the main hgroup title and tags */
-.swagger-ui .information-container .main {
-  display: inline-block;
-  text-align: center;
-}
-
-/* Title styling */
-.swagger-ui .information-container .title {
-  font-size: 2rem !important;
-  color: var(--color-accent) !important;
-  font-weight: 700 !important;
-  display: inline-flex;
-  align-items: baseline;
-  justify-content: center;
-}
-
-/* Version tags beside title as superscript style */
-.swagger-ui .information-container .title span {
-  display: inline-flex;
-  flex-direction: row;
-  align-items: baseline;
-  margin-left: 10px;
-}
-
-.swagger-ui .information-container .title small {
-  display: inline;
-  margin-left: 5px;
-}
-
-.swagger-ui .information-container .title pre.version {
-  background-color: var(--color-tertiary-bg) !important;
-  color: var(--color-primary-text) !important;
-  padding: 2px 6px;
-  border-radius: var(--border-radius);
-  font-size: 0.8rem !important;
-}
-
-/* Center the openapi.json link below title */
-.swagger-ui .information-container .link {
-  display: block;
-  margin: 0.5rem auto;
-  font-size: 0.9rem;
-  color: var(--color-secondary-text) !important;
-}
-
-/* Center the description text below */
-.swagger-ui .information-container .info__description {
-  max-width: 600px;
-  margin: 0.5rem auto;
-  text-align: center;
-  font-size: 1rem;
-  border-right: 4px solid var(--color-accent); /* blue line on right side */
-  color: var(--color-secondary-text);
-}
-
-/* Center the entire title block and tags */
-.swagger-ui .information-container .main {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  text-align: center;
-}
-
-/* Title text styling */
-.swagger-ui .information-container .title {
-  font-size: 2rem !important;
-  color: var(--color-accent) !important;
-  font-weight: 600 !important;
-  margin-right: 10px;
-}
-
-/* Ensure version tags are inline and centered with title */
-.swagger-ui .information-container .title span {
-  display: inline-flex;
-  align-items: center;
-  margin-left: 10px;
-}
-
-/* Style version numbers as superscript chips */
-.swagger-ui .information-container .title small {
-  background-color: var(--color-tertiary-bg) !important;
-  color: var(--color-primary-text) !important;
-  padding: 2px 6px;
-  border-radius: var(--border-radius);
-  font-size: 0.8rem !important;
-  margin-left: 5px;
-}
-
-/* Position openapi.json link to far right */
-.swagger-ui .information-container .link {
-  position: absolute;
-  right: 20px;
-  top: 20px;
-  font-size: 0.9rem;
-}
-
-/* Center the description text below with right blue line */
-.swagger-ui .information-container .info__description {
-  max-width: 600px;
-  margin: 0.5rem auto;
-  text-align: center;
-  font-size: 1rem;
-  color: var(--color-secondary-text);
-  border-right: 4px solid var(--color-accent);
-  padding-right: 10px;
-  display: inline-block;
-}
-
-/* === TAG SECTION ARROW STYLING ============================================= */
-
-.swagger-ui .opblock-tag-section .expand-operation svg path {
-  fill: var(--color-secondary-text) !important;
-  opacity: 0.6 !important;
-  transition: fill var(--transition-speed) ease, opacity var(--transition-speed) ease;
-}
-
-.swagger-ui .opblock-tag-section .expand-operation:hover svg path {
-  fill: var(--color-accent) !important;
-  opacity: 1 !important;
-}
-
-/* === ENDPOINT ARROW STYLING ================================================ */
-
-.swagger-ui .opblock-summary .opblock-control-arrow svg path {
-  fill: var(--color-secondary-text) !important;
-  opacity: 0.6 !important;
-  transition: fill var(--transition-speed) ease, opacity var(--transition-speed) ease;
-}
-
-.swagger-ui .opblock-summary .opblock-control-arrow:hover svg path {
-  fill: var(--color-accent) !important;
-  opacity: 1 !important;
-}
-
-/* === EXPAND-OPERATION BUTTON DARK THEME FIX =============================== */
-
-.swagger-ui .expand-operation {
-  background-color: transparent !important; /* remove default white bg */
-  border: none !important; /* remove any border if present */
-  padding: 4px; /* optional: tweak spacing for better visuals */
-  border-radius: var(--border-radius);
-  cursor: pointer;
-  transition: background-color var(--transition-speed) ease;
-}
-
-.swagger-ui .expand-operation:hover {
-  background-color: var(--color-tertiary-bg) !important; /* subtle hover highlight */
-}
-
-/* === EXPAND-OPERATION BUTTON LEFT PADDING ================================ */
-
-.swagger-ui .expand-operation {
-  padding-left: 8px  !important; /* adjust value as needed */
-}
-
-/* === HIDE SCHEMAS/MODELS SECTION COMPLETELY ============================== */
-.swagger-ui .models {
-  display: none !important;
-}
-
-/* === ADD LEFT PADDING TO PARAMETERS HEADER ================================== */
-.swagger-ui .opblock-section-header {
-  padding-left: 20% !important;
-}
-
-
-/* === TRY IT OUT BUTTON RIGHT ALIGNMENT ====================================== */
-.swagger-ui .opblock-section-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-left: 20%;  /* as you wanted earlier */
-  padding-right: 20%; /* new: adds ~20% right margin */
-}
-
-.swagger-ui .opblock-section-header .try-out {
-  margin-right: 0; /* ensures no conflicting margins */
-}
-
-.swagger-ui .opblock-section-header .btn.try-out__btn {
-  margin-right: 0;  /* removes any default margin */
-}
-
-/* Align request body section similar to tables */
-.swagger-ui .opblock-section-request-body {
-  display: flex;
-  justify-content: center;
-  padding: 1rem;
-}
-
-.swagger-ui .opblock-section-request-body .opblock-description-wrapper {
-  width: 60%; /* match parameter/response table width */
-  max-width: 60%;
-  min-width: 400px;
-}
-
-/* Style the textarea for dark theme consistency */
-.swagger-ui .body-param__text {
-  width: 100%;
-  min-height: 150px;
-  background-color: var(--color-primary-bg) !important;
-  color: var(--color-primary-text) !important;
-  border: 1px solid var(--color-border) !important;
-  border-radius: var(--border-radius);
-  padding: 0.5rem;
-  font-family: var(--font-family-mono);
-  font-size: 1rem;
-  transition: all var(--transition-speed) ease;
-}
-
-.swagger-ui .body-param__text:focus {
-  border-color: var(--color-accent) !important;
-  box-shadow: 0 0 5px var(--color-accent);
-}
-
-
-/* Match execute button to Try it Out button styling and position */
-.swagger-ui .execute-wrapper {
-  display: flex;
-  justify-content: flex-end;
-  padding-right: 20%; /* similar right margin as Try it Out */
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-}
-
-.swagger-ui .btn.execute {
-  font-size: 1rem;
-  padding: 0.5rem 1.25rem;
-  border-radius: var(--border-radius);
-}
-
-/* Style Execute and Clear buttons consistently within .btn-group */
-.swagger-ui .btn-group {
-  display: flex;
-  justify-content: flex-end; /* right align both buttons */
-  padding-right: 20%; /* match Try it Out and Execute position */
-  gap: 0.5rem; /* space between buttons */
-}
-
-/* Style Execute button */
-.swagger-ui .btn.execute {
-  font-size: 1rem;
-  padding: 0.5rem 1.25rem;
-  border-radius: var(--border-radius);
-  background-color: var(--color-accent) !important;
-  color: #ffffff !important;
-  border: 1px solid var(--color-accent) !important;
-}
-
-.swagger-ui .btn.execute:hover {
-  background-color: var(--color-accent-hover) !important;
-  border-color: var(--color-accent-hover) !important;
-}
-
-/* Style Clear button to match size but remain grey */
-.swagger-ui .btn.btn-clear {
-  font-size: 1rem;
-  padding: 0.5rem 1.25rem;
-  border-radius: var(--border-radius);
-  background-color: var(--color-tertiary-bg) !important;
-  color: var(--color-primary-text) !important;
-  border: 1px solid var(--color-border) !important;
-}
-
-.swagger-ui .btn.btn-clear:hover {
-  background-color: #444 !important;
-  border-color: #666 !important;
-}
-
-/* ==== RESPONSE LAYOUT FIXES (append at end) =============================== */
-
-/* 1) Stack response chunks vertically and center them */
-.swagger-ui .responses-inner {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  width: 100% !important;
-  box-sizing: border-box !important;
-}
-
-/* 2) Constrain widths of free-floating response pieces (match your 60% theme) */
-:root {
-  --content-width: 60%;
-  --content-min: 400px;
-}
-.swagger-ui .responses-inner > * ,
-.swagger-ui .curl-command,
-.swagger-ui .request-url,
-.swagger-ui .highlight-code,
-.swagger-ui .model-example,
-.swagger-ui .response-controls,
-.swagger-ui .response-col_description__inner {
-  width: var(--content-width) !important;
-  max-width: var(--content-width) !important;
-  min-width: var(--content-min) !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  box-sizing: border-box !important;
-}
-
-/* 3) Contain floats so they can’t push code blocks off to the left */
-.swagger-ui .curl-command,
-.swagger-ui .highlight-code {
-  display: flow-root !important; /* new block formatting context */
-}
-
-/* Don’t globally float the clipboard; scope it so layout stays sane */
-.swagger-ui .copy-to-clipboard {
-  float: none !important;
-}
-.swagger-ui .curl-command .copy-to-clipboard {
-  float: right !important; /* if you want it right, keep it inside this container */
-}
-
-/* 4) Code blocks: scroll horizontally, never expand layout */
-.swagger-ui pre.microlight,
-.swagger-ui pre.curl,
-.swagger-ui .highlight-code pre {
-  max-width: 100% !important;
-  overflow-x: auto !important;
-  white-space: pre !important;      /* no wrapping inside code */
-  word-break: normal !important;
-  overflow-wrap: normal !important;
-  margin: 0 !important;
-  border-radius: var(--border-radius) !important;
-}
-
-/* Optional: keep the “Request URL” pre looking consistent */
-.swagger-ui .request-url pre.microlight {
-  background-color: var(--color-tertiary-bg) !important;
-  color: var(--color-primary-text) !important;
-  padding: 0.5rem !important;
-  border: 1px solid var(--color-border) !important;
-  border-radius: var(--border-radius) !important;
-}
-
-/* ==== GLOBAL FORM CONTROLS / INPUTS ======================================= */
+/* === GLOBAL FORM CONTROLS & INPUTS ======================================== */
 .swagger-ui input[type="text"],
 .swagger-ui input[type="search"],
 .swagger-ui input[type="url"],
@@ -1165,11 +112,79 @@ document.addEventListener('DOMContentLoaded', function() {
   box-shadow: 0 0 5px var(--color-accent) !important;
   outline: none !important;
 }
-.swagger-ui select.content-type {
-  background-color: var(--color-primary-bg) !important;
+
+/* === TOPBAR ================================================================= */
+.swagger-ui .topbar {
+  background-color: var(--color-secondary-bg) !important;
+  border-bottom: 1px solid var(--color-border);
+}
+.swagger-ui .topbar .download-url-wrapper input[type=text] {
+  border-radius: var(--border-radius);
+}
+.swagger-ui .topbar .download-url-button {
+  background-color: var(--color-accent) !important;
+  color: #ffffff !important;
+  border-radius: var(--border-radius);
+}
+.swagger-ui .topbar .download-url-button:hover {
+  background-color: var(--color-accent-hover) !important;
 }
 
-/* ==== SCHEME/SERVER BAR ==================================================== */
+/* === TOP INFO / HEADER SECTION ============================================ */
+.swagger-ui .information-container .info {
+  text-align: center;
+  margin: 1rem auto;
+  position: relative;
+}
+.swagger-ui .information-container .main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  text-align: center;
+}
+.swagger-ui .information-container .title {
+  font-size: 2rem !important;
+  color: var(--color-accent) !important;
+  font-weight: 600 !important;
+  margin: 0 10px 0 0;
+  display: inline-flex;
+  align-items: baseline;
+}
+.swagger-ui .information-container .title small {
+  background-color: var(--color-tertiary-bg) !important;
+  color: var(--color-primary-text) !important;
+  padding: 2px 6px;
+  border-radius: var(--border-radius);
+  font-size: 0.8rem !important;
+  margin-left: 5px;
+  display: inline-block;
+}
+.swagger-ui .information-container .title small pre.version {
+  margin: 0;
+  font-family: var(--font-family-mono);
+  background: none;
+  border: none;
+  padding: 0;
+}
+.swagger-ui .information-container .link {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  font-size: 0.9rem;
+}
+.swagger-ui .information-container .info__description {
+  max-width: 600px;
+  margin: 0.5rem auto;
+  text-align: center;
+  font-size: 1rem;
+  color: var(--color-secondary-text);
+  border-left: 4px solid var(--color-accent);
+  padding-left: 10px;
+  display: inline-block;
+}
+
+/* === SCHEME / SERVER BAR & FILTERS ======================================== */
 .swagger-ui .scheme-container {
   background: var(--color-secondary-bg) !important;
   border: 1px solid var(--color-border) !important;
@@ -1180,185 +195,118 @@ document.addEventListener('DOMContentLoaded', function() {
 .swagger-ui .scheme-container .schemes {
   color: var(--color-primary-text) !important;
 }
-.swagger-ui .servers select,
-.swagger-ui .scheme-container select {
-  background: var(--color-primary-bg) !important;
-}
-
-/* ==== TOP FILTER (SEARCH) ================================================== */
 .swagger-ui .filter .operation-filter-input {
-  background: var(--color-primary-bg) !important;
-  color: var(--color-primary-text) !important;
-  border: 1px solid var(--color-border) !important;
   border-radius: var(--border-radius) !important;
 }
 
-/* ==== TABS (Example / Schema / etc.) ====================================== */
-.swagger-ui .tab {
-  border-bottom: 1px solid var(--color-border) !important;
-}
-.swagger-ui .tabitem .tablinks {
-  background: var(--color-tertiary-bg) !important;
-  color: var(--color-primary-text) !important;
-  border: 1px solid var(--color-border) !important;
-  border-bottom: none !important;
-  border-top-left-radius: var(--border-radius) !important;
-  border-top-right-radius: var(--border-radius) !important;
-}
-.swagger-ui .tabitem.active .tablinks {
-  background: var(--color-secondary-bg) !important;
-  color: var(--color-accent) !important;
-  font-weight: 600 !important;
-}
-
-/* ==== MICROLIGHT / CODE BLOCKS ============================================ */
-.swagger-ui pre.microlight,
-.swagger-ui .microlight {
-  background-color: var(--color-tertiary-bg) !important;
-  color: var(--color-primary-text) !important;
-  border: 1px solid var(--color-border) !important;
-  border-radius: var(--border-radius) !important;
-  overflow-x: auto !important;
-  white-space: pre !important;
-  margin: .25rem 0 !important;
-}
-.swagger-ui .highlight-code {
-  background: var(--color-secondary-bg) !important;
-  border: 1px solid var(--color-border) !important;
-  border-radius: var(--border-radius) !important;
-  padding: .5rem !important;
-}
-
-/* Download button next to code */
-.swagger-ui .download-contents {
-  background: var(--color-tertiary-bg) !important;
-  color: var(--color-primary-text) !important;
-  border: 1px solid var(--color-border) !important;
-  border-radius: var(--border-radius) !important;
-}
-.swagger-ui .download-contents:hover {
-  background: #444 !important;
-}
-
-/* ==== RESPONSE CONTROLS / MEDIA TYPE ====================================== */
-.swagger-ui .response-controls,
-.swagger-ui .response-control-media-type {
-  background: var(--color-secondary-bg) !important;
-  border: 1px solid var(--color-border) !important;
-  border-radius: var(--border-radius) !important;
-  padding: .5rem !important;
-}
-
-/* ==== TABLE POLISH (generic) ============================================== */
-.swagger-ui table {
-  background: var(--color-secondary-bg) !important;
-  color: var(--color-primary-text) !important;
-}
-.swagger-ui table thead th,
-.swagger-ui table thead td {
-  background: var(--color-tertiary-bg) !important;
-  color: var(--color-primary-text) !important;
-  border-bottom: 1px solid var(--color-border) !important;
-}
-.swagger-ui table tbody tr:hover {
-  background: #3b3b3b !important;
-}
-
-/* Ensure live responses table matches theme */
-.swagger-ui table.live-responses-table {
-  border: 1px solid var(--color-border) !important;
-  border-radius: var(--border-radius) !important;
-}
-
-/* ==== MODEL / SCHEMA DETAILS ============================================== */
-.swagger-ui .model,
-.swagger-ui .model-box,
-.swagger-ui .model-container {
-  background: var(--color-secondary-bg) !important;
-  border: 1px solid var(--color-border) !important;
-  border-radius: var(--border-radius) !important;
-}
-.swagger-ui .property.primitive,
-.swagger-ui .prop-type,
-.swagger-ui .prop-format {
-  color: var(--color-secondary-text) !important;
-}
-.swagger-ui .model .property-row {
-  border-bottom: 1px solid var(--color-border) !important;
-}
-
-/* ==== AUTH / MODALS ======================================================== */
-.swagger-ui .dialog-ux {
-  background: rgba(0,0,0,.6) !important;
-}
-.swagger-ui .modal-ux,
-.swagger-ui .modal-ux-content {
-  background: var(--color-secondary-bg) !important;
-  color: var(--color-primary-text) !important;
-  border: 1px solid var(--color-border) !important;
-  border-radius: var(--border-radius) !important;
-}
-.swagger-ui .modal-ux-header h3 {
-  color: var(--color-primary-text) !important;
-}
-.swagger-ui .auth-container input {
-  background: var(--color-primary-bg) !important;
-  color: var(--color-primary-text) !important;
-  border: 1px solid var(--color-border) !important;
-  border-radius: var(--border-radius) !important;
-}
-.swagger-ui .auth-btn-wrapper .btn,
-.swagger-ui .btn.modal-btn {
-  background: var(--color-accent) !important;
-  border: 1px solid var(--color-accent) !important;
-  color: #fff !important;
-}
-.swagger-ui .auth-btn-wrapper .btn.cancel,
-.swagger-ui .btn.modal-btn.cancel {
-  background: var(--color-tertiary-bg) !important;
-  border: 1px solid var(--color-border) !important;
-  color: var(--color-primary-text) !important;
-}
-
-/* ==== TAG/SECTION HEADERS & GLOBAL EXPAND/COLLAPSE ======================== */
-.swagger-ui .opblock-tag {
+/* === TAGS & GLOBAL EXPAND/COLLAPSE ========================================= */
+.swagger-ui .opblock-tag-section .opblock-tag {
   background: var(--color-secondary-bg) !important;
   border: 1px solid var(--color-border) !important;
   border-radius: var(--border-radius) !important;
   padding: .5rem .75rem !important;
+  color: var(--color-accent) !important;
 }
-.swagger-ui .expand-methods, .swagger-ui .collapse-methods {
+.swagger-ui .expand-methods,
+.swagger-ui .collapse-methods {
   background: var(--color-tertiary-bg) !important;
   color: var(--color-primary-text) !important;
   border: 1px solid var(--color-border) !important;
   border-radius: var(--border-radius) !important;
 }
+.swagger-ui .expand-operation {
+  background-color: transparent !important;
+  border: none !important;
+  padding: 4px 4px 4px 8px !important;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color var(--transition-speed) ease;
+}
+.swagger-ui .expand-operation:hover {
+  background-color: var(--color-tertiary-bg) !important;
+}
 
-/* ==== TRY IT OUT — Cancel/Reset buttons to match ========================== */
-.swagger-ui .btn.try-out__btn.cancel,
-.swagger-ui .btn.try-out__btn.reset {
-  background: var(--color-tertiary-bg) !important;
-  color: var(--color-primary-text) !important;
+/* === OPERATION BLOCK & SUMMARY HEADER ===================================== */
+.swagger-ui .opblock {
+  background-color: var(--color-secondary-bg) !important;
   border: 1px solid var(--color-border) !important;
+  border-radius: var(--border-radius);
+  margin-bottom: 1rem;
+}
+.swagger-ui .opblock-summary {
+  background-color: transparent !important;
+  border-bottom: none !important;
+  padding: 0.5rem 1rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  flex-wrap: nowrap !important;
+}
+.swagger-ui .opblock-summary:hover {
+  background-color: var(--color-tertiary-bg) !important;
+}
+.swagger-ui .opblock-summary-control {
+  flex: 1 1 auto !important;
+  display: flex !important;
+  align-items: center !important;
+  background-color: transparent !important; /* Should inherit from parent */
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  text-align: left; /* Ensure text aligns left inside the button */
+}
+.swagger-ui .opblock-summary-method {
+  border-radius: var(--border-radius);
+  font-weight: bold;
+  font-size: 1em;
+  padding: 5px 10px !important;
+  margin-right: 10px !important;
+}
+.swagger-ui .opblock.opblock-get .opblock-summary-method { background-color: var(--color-info) !important; }
+.swagger-ui .opblock.opblock-post .opblock-summary-method { background-color: var(--color-success) !important; }
+.swagger-ui .opblock.opblock-put .opblock-summary-method { background-color: var(--color-warning) !important; color: #111 !important; }
+.swagger-ui .opblock.opblock-delete .opblock-summary-method { background-color: var(--color-danger) !important; }
+.swagger-ui .opblock.opblock-patch .opblock-summary-method { background-color: #6c757d !important; }
+.swagger-ui .opblock-summary-path {
+  font-family: var(--font-family-mono);
+  color: var(--color-primary-text) !important;
+  font-size: 14px !important;
+}
+.swagger-ui .opblock-summary-description {
+  color: var(--color-secondary-text) !important;
+  font-size: 20px !important;
+  font-weight: bold !important;
+  margin-left: 10px !important;
+  flex: 1 1 auto;
+  text-align: left;
+}
+.swagger-ui .copy-to-clipboard {
+  flex: 0 0 auto;
+  margin-left: auto;
+}
+.swagger-ui .copy-to-clipboard svg {
+  width: 24px !important;
+  height: 24px !important;
 }
 
-/* ==== REQUEST URL / CURL BOX WIDTHS (match 60%) =========================== */
-:root { --content-width: 60%; --content-min: 400px; }
-.swagger-ui .request-url,
-.swagger-ui .curl-command,
-.swagger-ui .response-controls,
-.swagger-ui .model-example,
-.swagger-ui .highlight-code,
-.swagger-ui .response-col_description__inner {
-  width: var(--content-width) !important;
-  max-width: var(--content-width) !important;
-  min-width: var(--content-min) !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  box-sizing: border-box !important;
+/* === ARROWS & ICONS ========================================================= */
+.swagger-ui .opblock-control-arrow,
+.swagger-ui .opblock-tag-section .expand-operation {
+  flex: 0 0 auto !important;
+  margin-left: 10px !important;
+  background-color: transparent !important;
 }
-
-/* ==== COPY BUTTONS (scoped to avoid layout issues) ======================== */
+.swagger-ui .opblock-control-arrow svg path,
+.swagger-ui .opblock-tag-section .expand-operation svg path {
+  fill: var(--color-secondary-text) !important;
+  opacity: 0.6 !important;
+  transition: fill var(--transition-speed) ease, opacity var(--transition-speed) ease;
+}
+.swagger-ui .opblock-control-arrow:hover svg path,
+.swagger-ui .opblock-tag-section .expand-operation:hover svg path {
+  fill: var(--color-accent) !important;
+  opacity: 1 !important;
+}
 .swagger-ui .copy-to-clipboard button svg {
   fill: var(--color-primary-text) !important;
 }
@@ -1366,36 +314,210 @@ document.addEventListener('DOMContentLoaded', function() {
   fill: var(--color-accent) !important;
 }
 
-/* ==== ALERTS / MESSAGES ==================================================== */
-.swagger-ui .notice,
-.swagger-ui .loading-container,
-.swagger-ui .errors-wrapper {
+/* === PARAMETERS / RESPONSES SECTION HEADERS =============================== */
+.swagger-ui .opblock .opblock-section-header {
+  background-color: var(--color-tertiary-bg) !important;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 20% !important;
+}
+
+/* === PARAMETERS & RESPONSES TABLES ======================================== */
+.swagger-ui .parameters-container,
+.swagger-ui .responses-inner {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.swagger-ui table.parameters,
+.swagger-ui table.responses-table {
+  width: var(--content-width) !important;
+  max-width: var(--content-width) !important;
+  min-width: var(--content-min-width);
+  table-layout: auto;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  border-collapse: collapse;
+  background-color: var(--color-secondary-bg);
+  color: var(--color-primary-text) !important;
+}
+.swagger-ui table.parameters thead th,
+.swagger-ui table.responses-table thead td {
+  background-color: var(--color-tertiary-bg) !important;
+  color: var(--color-primary-text) !important;
+  border-bottom: 1px solid var(--color-border);
+  text-align: left;
+  padding: 8px 12px;
+}
+.swagger-ui table.parameters td,
+.swagger-ui table.responses-table td {
+  padding: 10px 15px;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-primary-text) !important;
+  vertical-align: top;
+  font-size: 1em !important;
+}
+.swagger-ui table tbody tr:hover {
+  background: #3b3b3b !important;
+}
+.swagger-ui .parameters-col_name .parameter__name {
+  font-weight: bold;
+  color: var(--color-primary-text) !important;
+}
+.swagger-ui .parameters-col_name .parameter__type,
+.swagger-ui .parameters-col_name .parameter__in {
+  display: block;
+  font-style: italic;
+  color: var(--color-secondary-text) !important;
+  font-size: 0.9em;
+}
+.swagger-ui .parameters-col_description input,
+.swagger-ui .parameters-col_description select,
+.swagger-ui .parameters-col_description textarea {
+  width: 100%;
+}
+
+/* === "TRY IT OUT" & EXECUTE BUTTONS ======================================= */
+.swagger-ui .btn {
+  background-color: var(--color-tertiary-bg) !important;
+  color: var(--color-primary-text) !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--border-radius);
+}
+.swagger-ui .btn:hover {
+  background-color: #444 !important;
+  border-color: #666 !important;
+}
+.swagger-ui .btn.try-out__btn {
+  background-color: var(--color-accent) !important;
+  color: #ffffff !important;
+  font-weight: bold !important;
+  font-size: 1rem !important;
+  padding: 10px 20px !important;
+}
+.swagger-ui .btn.try-out__btn:hover {
+  background-color: var(--color-accent-hover) !important;
+}
+.swagger-ui .btn.try-out__btn.cancel,
+.swagger-ui .btn.try-out__btn.reset {
+  background: var(--color-tertiary-bg) !important;
+  color: var(--color-primary-text) !important;
+  border: 1px solid var(--color-border) !important;
+}
+.swagger-ui .execute-wrapper,
+.swagger-ui .btn-group {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 20%;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  gap: 0.5rem;
+}
+.swagger-ui .btn.execute,
+.swagger-ui .btn.btn-clear {
+  font-size: 1rem;
+  padding: 0.5rem 1.25rem;
+  border-radius: var(--border-radius);
+}
+.swagger-ui .btn.execute {
+  background-color: var(--color-accent) !important;
+  color: #ffffff !important;
+  border: 1px solid var(--color-accent) !important;
+}
+.swagger-ui .btn.execute:hover {
+  background-color: var(--color-accent-hover) !important;
+  border-color: var(--color-accent-hover) !important;
+}
+
+/* === REQUEST BODY SECTION ================================================= */
+.swagger-ui .opblock-section-request-body {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+.swagger-ui .opblock-section-request-body .opblock-description-wrapper {
+  width: var(--content-width);
+  max-width: var(--content-width);
+  min-width: var(--content-min-width);
+}
+.swagger-ui .body-param__text {
+  width: 100%;
+  min-height: 150px;
+  font-family: var(--font-family-mono);
+  font-size: 1rem;
+}
+
+/* === RESPONSE LAYOUT & CONTENT ============================================ */
+.swagger-ui .responses-wrapper .responses-inner {
+  display: block !important;
+  width: 100% !important;
+}
+.swagger-ui .curl-command,
+.swagger-ui .request-url,
+.swagger-ui .response-controls,
+.swagger-ui .highlight-code,
+.swagger-ui .model-example,
+.swagger-ui .response-col_description__inner,
+.swagger-ui table.live-responses-table {
+  width: var(--content-width) !important;
+  max-width: var(--content-width) !important;
+  min-width: var(--content-min-width) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  box-sizing: border-box !important;
+}
+.swagger-ui .highlight-code {
   background: var(--color-secondary-bg) !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--border-radius) !important;
+  padding: .5rem !important;
+  display: flow-root !important; /* Contain floats */
+  position: relative !important;
+}
+.swagger-ui .highlight-code .copy-to-clipboard {
+  float: right !important;
+}
+.swagger-ui pre.microlight,
+.swagger-ui pre.curl,
+.swagger-ui .highlight-code pre {
+  max-width: 100% !important;
+  overflow-x: auto !important;
+  white-space: pre !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  margin: 0 !important;
+  border-radius: var(--border-radius) !important;
+  background-color: var(--color-tertiary-bg) !important;
+  border: 1px solid var(--color-border) !important;
+}
+.swagger-ui table.live-responses-table .highlight-code pre {
+  white-space: pre-wrap !important;
+  overflow-wrap: anywhere !important;
+  word-break: break-word !important;
+  max-height: 420px !important;
+  overflow-y: auto !important;
+}
+.swagger-ui .download-contents {
+  background: var(--color-tertiary-bg) !important;
   color: var(--color-primary-text) !important;
   border: 1px solid var(--color-border) !important;
   border-radius: var(--border-radius) !important;
 }
 
-/* ==== ACCESSIBILITY / SELECTION =========================================== */
-.swagger-ui ::selection {
-  background: var(--color-accent) !important;
-  color: #fff !important;
+/* === HIDE SCHEMAS/MODELS SECTION ========================================== */
+.swagger-ui .models,
+.swagger-ui .schemas-wrapper {
+  display: none !important;
 }
 
-/* ==== RESPONSIVE FALLBACK: narrow screens use full width =================== */
-@media (max-width: 900px) {
-  :root { --content-width: 95%; }
-  .swagger-ui .opblock-section-header {
-    padding-left: 2% !important;
-    padding-right: 2% !important;
-  }
-}
-
-/* ==== AUTH BUTTON (lock/unlock) ============================================ */
+/* === AUTHENTICATION BUTTON & MODAL ======================================== */
 .swagger-ui .authorization__btn {
   display: inline-flex !important;
   align-items: center !important;
-  justify-content: center !important;
   gap: .4rem !important;
   height: 32px !important;
   padding: 0 .75rem !important;
@@ -1403,29 +525,18 @@ document.addEventListener('DOMContentLoaded', function() {
   background: var(--color-accent) !important;
   color: #fff !important;
   border: 1px solid var(--color-accent) !important;
-  box-shadow: none !important;
-  transition: background var(--transition-speed) ease, border-color var(--transition-speed) ease, transform .05s ease !important;
+  transition: all var(--transition-speed) ease, transform .05s ease !important;
 }
-
 .swagger-ui .authorization__btn:hover {
   background: var(--color-accent-hover) !important;
   border-color: var(--color-accent-hover) !important;
 }
-
 .swagger-ui .authorization__btn:active {
   transform: translateY(1px) !important;
 }
-
 .swagger-ui .authorization__btn svg path {
-  fill: #fff !important; /* keep the icon visible on blue background */
+  fill: #fff !important;
 }
-
-/* Optional: differentiate states at a glance */
-.swagger-ui .authorization__btn .locked path { opacity: .85 !important; }
-.swagger-ui .authorization__btn .unlocked path { opacity: 1 !important; }
-
-/* ==== AUTH MODAL -> force true "popup" overlay ============================ */
-/* Overlay/backdrop */
 .swagger-ui .dialog-ux {
   position: fixed !important;
   inset: 0 !important;
@@ -1436,27 +547,19 @@ document.addEventListener('DOMContentLoaded', function() {
   justify-content: center !important;
   padding: 2rem !important;
 }
-
-/* Modal container */
-.swagger-ui .modal-ux,
-.swagger-ui .modal-dialog-ux,
-.swagger-ui .modal-ux-inner {
+.swagger-ui .modal-ux {
   background: var(--color-secondary-bg) !important;
-  color: var(--color-primary-text) !important;
   border: 1px solid var(--color-border) !important;
   border-radius: 12px !important;
   box-shadow: 0 12px 40px rgba(0,0,0,.5) !important;
-  max-width: min(700px, 96vw) !important;
-  width: min(700px, 96vw) !important;
+  max-width: min(960px, 98vw) !important;
+  width: min(960px, 98vw) !important;
+  color: var(--color-primary-text) !important;
 }
-
-/* Inner content padding */
 .swagger-ui .modal-ux-inner {
   padding: 0 !important;
   overflow: hidden !important;
 }
-
-/* Header */
 .swagger-ui .modal-ux-header {
   display: flex !important;
   align-items: center !important;
@@ -1470,198 +573,91 @@ document.addEventListener('DOMContentLoaded', function() {
   color: var(--color-primary-text) !important;
   font-weight: 600 !important;
 }
-
-/* Close button */
 .swagger-ui .modal-ux-header .close-modal {
   background: transparent !important;
   border: 1px solid var(--color-border) !important;
   border-radius: 999px !important;
   width: 32px !important;
   height: 32px !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
   cursor: pointer !important;
-  transition: border-color var(--transition-speed) ease, background var(--transition-speed) ease !important;
 }
 .swagger-ui .modal-ux-header .close-modal:hover {
-  background: var(--color-tertiary-bg) !important;
   border-color: var(--color-accent) !important;
 }
-.swagger-ui .modal-ux-header .close-modal svg path {
-  fill: var(--color-primary-text) !important;
-}
-
-/* Body/content */
 .swagger-ui .modal-ux-content {
   padding: 1rem 1.1rem 1.25rem !important;
+  background: var(--color-secondary-bg) !important;
 }
-
-/* Scope intro text */
-.swagger-ui .auth-container .scope-def p {
-  color: var(--color-secondary-text) !important;
-}
-
-/* Labels + code chips */
-.swagger-ui .auth-container label {
-  color: var(--color-secondary-text) !important;
-  font-weight: 500 !important;
-}
-.swagger-ui .auth-container code {
-  background: var(--color-tertiary-bg) !important;
-  color: var(--color-primary-text) !important;
-  border: 1px solid var(--color-border) !important;
-  border-radius: 6px !important;
-  padding: 1px 6px !important;
-}
-
-/* Inputs/selects inside the modal */
-.swagger-ui .auth-container input,
-.swagger-ui .auth-container select,
-.swagger-ui .auth-container textarea {
-  background: var(--color-primary-bg) !important;
-  color: var(--color-primary-text) !important;
-  border: 1px solid var(--color-border) !important;
-  border-radius: 8px !important;
-  padding: .6rem .65rem !important;
-  width: 100% !important;
-  transition: border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease !important;
-}
-.swagger-ui .auth-container input::placeholder { color: var(--color-secondary-text) !important; }
-.swagger-ui .auth-container input:focus,
-.swagger-ui .auth-container select:focus,
-.swagger-ui .auth-container textarea:focus {
-  border-color: var(--color-accent) !important;
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 30%, transparent) !important;
-  outline: none !important;
-}
-
-/* Layout of label/input rows */
-.swagger-ui .auth-container .wrapper {
-  display: grid !important;
-  grid-template-columns: 160px 1fr !important;
-  gap: .6rem .9rem !important;
-  align-items: center !important;
-  margin: .5rem 0 !important;
-}
-
-/* Buttons in the modal */
-.swagger-ui .auth-btn-wrapper {
-  display: flex !important;
-  justify-content: flex-end !important;
-  gap: .5rem !important;
-  margin-top: 1rem !important;
-}
-.swagger-ui .auth-btn-wrapper .btn.modal-btn.auth.authorize {
-  background: var(--color-accent) !important;
-  border: 1px solid var(--color-accent) !important;
-  color: #fff !important;
-  padding: .6rem 1rem !important;
-  border-radius: var(--border-radius) !important;
-  font-weight: 600 !important;
-}
-.swagger-ui .auth-btn-wrapper .btn.modal-btn.auth.authorize:hover {
-  background: var(--color-accent-hover) !important;
-  border-color: var(--color-accent-hover) !important;
-}
-.swagger-ui .auth-btn-wrapper .btn.modal-btn.auth.btn-done {
-  background: var(--color-tertiary-bg) !important;
-  border: 1px solid var(--color-border) !important;
-  color: var(--color-primary-text) !important;
-  padding: .6rem 1rem !important;
-  border-radius: var(--border-radius) !important;
-}
-.swagger-ui .auth-btn-wrapper .btn.modal-btn.auth.btn-done:hover {
-  background: #444 !important;
-  border-color: #666 !important;
-}
-
-/* OAuth block heading */
-.swagger-ui .auth-container h4 {
-  color: var(--color-primary-text) !important;
-  margin: .75rem 0 .25rem !important;
-  font-weight: 600 !important;
-}
-
-/* Responsive: stack labels on narrow screens */
-@media (max-width: 700px) {
-  .swagger-ui .auth-container .wrapper {
-    grid-template-columns: 1fr !important;
-  }
-  .swagger-ui .auth-container label {
-    margin-bottom: .25rem !important;
-  }
-}
-
-/* === AUTH DIALOG LAYOUT FIX (labels overlapping) =========================== */
-
-/* 1) Give the modal more room so labels don't wrap awkwardly */
-.swagger-ui .modal-ux,
-.swagger-ui .modal-dialog-ux,
-.swagger-ui .modal-ux-inner {
-  max-width: min(960px, 98vw) !important;
-  width: min(960px, 98vw) !important;
-}
-
-/* 2) Flatten the nested .wrapper so each row uses ONE grid
-   (prevents label/value overlap in both authorized & input states) */
-.swagger-ui .auth-container .wrapper > .wrapper {
-  display: contents !important; /* children (label + section/code) occupy parent grid columns */
-}
-
-/* 3) A sane two-column grid for rows */
 .swagger-ui .auth-container .wrapper {
   display: grid !important;
   grid-template-columns: minmax(150px, 260px) 1fr !important;
   gap: .6rem 1rem !important;
   align-items: start !important;
 }
-
-/* 4) Make sure any column helper <section> fills the grid cell */
-.swagger-ui .auth-container .wrapper section[class*="col-"],
-.swagger-ui .auth-container .wrapper section {
-  width: 100% !important;
-  display: block !important;
+.swagger-ui .auth-container .wrapper > .wrapper {
+  display: contents !important; /* Flatten nested wrappers */
 }
-
-/* 5) Labels: no overlap, allow wrapping gracefully */
 .swagger-ui .auth-container label {
-  margin: 0 !important;
+  color: var(--color-secondary-text) !important;
+  font-weight: 500 !important;
   line-height: 1.3 !important;
   word-break: break-word !important;
-  color: var(--color-secondary-text) !important;
 }
-
-/* 6) Inputs + selects: full width and consistent height */
+.swagger-ui .auth-container code {
+  background: var(--color-tertiary-bg) !important;
+  border-radius: 6px !important;
+  padding: 2px 8px !important;
+}
 .swagger-ui .auth-container input,
 .swagger-ui .auth-container select,
 .swagger-ui .auth-container textarea {
   width: 100% !important;
-  min-height: 38px !important;
+  border-radius: 8px !important;
   padding: .6rem .65rem !important;
-  box-sizing: border-box !important;
 }
-
-/* 7) Authorized state (<code> values): render like chips, never collide with labels */
-.swagger-ui .auth-container .wrapper code {
-  display: inline-block !important;
-  max-width: 100% !important;
-  white-space: nowrap !important;
-  overflow-x: auto !important;
+.swagger-ui .auth-container input:focus,
+.swagger-ui .auth-container select:focus,
+.swagger-ui .auth-container textarea:focus {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 30%, transparent) !important;
+}
+.swagger-ui .auth-btn-wrapper {
+  display: flex !important;
+  justify-content: flex-end !important;
+  gap: .5rem !important;
+  margin-top: 1rem !important;
+}
+.swagger-ui .btn.modal-btn.auth {
+  padding: .6rem 1rem !important;
+  border-radius: var(--border-radius) !important;
+  font-weight: 600 !important;
+}
+.swagger-ui .btn.modal-btn.auth.authorize {
+  background: var(--color-accent) !important;
+  border-color: var(--color-accent) !important;
+}
+.swagger-ui .btn.modal-btn.auth.authorize:hover {
+  background: var(--color-accent-hover) !important;
+  border-color: var(--color-accent-hover) !important;
+}
+.swagger-ui .btn.modal-btn.auth.btn-done {
   background: var(--color-tertiary-bg) !important;
-  color: var(--color-primary-text) !important;
-  border: 1px solid var(--color-border) !important;
-  border-radius: 6px !important;
-  padding: 2px 8px !important;
+  border-color: var(--color-border) !important;
+}
+.swagger-ui .btn.modal-btn.auth.btn-done:hover {
+  background: #444 !important;
+  border-color: #666 !important;
 }
 
-/* 8) Tighten tiny headings in the block so they don’t push rows around */
-.swagger-ui .auth-container h6 {
-  margin: .25rem 0 .5rem !important;
-  color: var(--color-accent) !important;
+/* === RESPONSIVE DESIGN ====================================================== */
+@media (max-width: 900px) {
+  :root {
+    --content-width: 95%;
+  }
+  .swagger-ui .opblock-section-header {
+    padding-left: 2% !important;
+    padding-right: 2% !important;
+  }
 }
-
-/* 9) Mobile: stack the form cleanly */
 @media (max-width: 700px) {
   .swagger-ui .auth-container .wrapper {
     grid-template-columns: 1fr !important;
@@ -1669,82 +665,4 @@ document.addEventListener('DOMContentLoaded', function() {
   .swagger-ui .auth-container label {
     margin-bottom: .25rem !important;
   }
-}
-
-/* PATCH 3
-/* ==== Live Response body: wrap + compact + scroll ========================= */
-
-/* Center & tighten the whole live responses table */
-:root { --content-width: 60%; --content-min: 400px; }
-.swagger-ui table.live-responses-table {
-  width: var(--content-width) !important;
-  max-width: var(--content-width) !important;
-  min-width: var(--content-min) !important;
-  margin: 0.5rem auto 1rem !important;
-  border: 1px solid var(--color-border) !important;
-  border-radius: var(--border-radius) !important;
-}
-
-/* Trim padding in the description cell */
-.swagger-ui table.live-responses-table td.response-col_description {
-  padding: .5rem !important;
-  vertical-align: top !important;
-}
-
-/* Make the “Response body” header compact */
-.swagger-ui table.live-responses-table .response-col_description h5 {
-  margin: .25rem 0 .5rem !important;
-  color: var(--color-secondary-text) !important;
-  font-weight: 600 !important;
-}
-
-/* Wrap & constrain the code area */
-.swagger-ui table.live-responses-table .highlight-code {
-  position: relative !important;
-  background: var(--color-secondary-bg) !important;
-  border: 1px solid var(--color-border) !important;
-  border-radius: var(--border-radius) !important;
-  padding: .5rem .5rem .5rem .5rem !important;
-  box-sizing: border-box !important;
-}
-
-/* Force long JSON to wrap; cap height and scroll */
-.swagger-ui table.live-responses-table .highlight-code pre,
-.swagger-ui table.live-responses-table pre.microlight,
-.swagger-ui table.live-responses-table code.language-json {
-  font-family: var(--font-family-mono) !important;
-  font-size: .95em !important;
-  line-height: 1.35 !important;
-
-  /* wrapping rules */
-  white-space: pre-wrap !important;   /* respect newlines, allow wrapping */
-  overflow-wrap: anywhere !important; /* wrap long tokens (e.g., long JSON strings) */
-  word-break: break-word !important;
-
-  /* sizing */
-  max-height: 420px !important;       /* adjust if you want shorter/taller */
-  overflow: auto !important;
-  margin: 0 !important;
-}
-
-/* Pin copy/download controls in the top-right of the code box */
-.swagger-ui table.live-responses-table .highlight-code .copy-to-clipboard {
-  position: absolute !important;
-  top: 6px !important;
-  right: 6px !important;
-}
-.swagger-ui table.live-responses-table .highlight-code .download-contents {
-  position: absolute !important;
-  top: 6px !important;
-  right: 44px !important; /* sit to the left of the copy button */
-  background: var(--color-tertiary-bg) !important;
-  color: var(--color-primary-text) !important;
-  border: 1px solid var(--color-border) !important;
-  border-radius: var(--border-radius) !important;
-  padding: 2px 8px !important;
-}
-
-/* Keep the header block consistent too */
-.swagger-ui .responses-wrapper .responses-inner {
-  display: block !important;
 }
